@@ -51,7 +51,7 @@ async function api(ciudad){
     } )
 .catch(err => alert('Se encontro un error'))
 };
-
+api(ciudad);
 const crearLineaNueva = (ciudad,temp,hume,presion,viento,espera,min,max)=>{
     return document.querySelector('#ciudad').innerHTML = ciudad,
         document.querySelector('#temperatura').innerHTML = temp,

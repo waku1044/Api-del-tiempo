@@ -1,1 +1,1 @@
-Aplicaciopn para ber el pronostico de las ciudades
+Aplicacion para ver el pronostico de las ciudades

@@ -28,21 +28,18 @@ const crearLineaNueva = (ciudad,temp,hume,presion,viento,espera,min,max)=>{
 // https://www.blogdelfotografo.com/wp-content/uploads/2018/12/rain-275317_1920.jpg  5
 // https://e.rpp-noticias.io/xlarge/2023/04/08/103010_1412656.jpg  6
 // http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg  7
+const ciudad  = prompt('Cual es tu la ciudad?'); 
 const actualiza = ()=>{
     window.location.href = './index.html';
 }
 actualizar.addEventListener('click',actualiza)
+console.log(ciudad)
 
-
-const  ciudad  = prompt('Cual es tu la ciudad?'); ; 
-
-async function api(ciudad) {
-    
- 
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad === '' ? 'campana' : ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
-    const data = await response.json();
+ async function api(ciudad){   
     try {
-        
+         const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad === '' ? 'campana' : ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
+         
+         console.log(data.weather[0].description)
          switch (data.weather[0].description) {
              case 'lluvia ligera':
                  img_tiempo.src = 'http://static.tiempo.com.mx/uploads/imagen/imagen/388071/principal_lluvia.jpg';
@@ -72,12 +69,8 @@ async function api(ciudad) {
                  img_tiempo.src = 'http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg';
                  img_tiempo.setAttribute('alt', 'muy nuboso');
                  break;
-             
          }
-         
-         
         crearLineaNueva(data.name, data.main.temp, data.main.humidity, data.main.pressure, data.wind.speed, data.weather[0].description, data.main.temp_min, data.main.temp_max);
-
      } catch (err) {
          alert('No se encuentra la localidad');
      }

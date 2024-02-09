@@ -25,7 +25,7 @@ const crearLineaNueva = (ciudad,temp,hume,presion,viento,espera,min,max)=>{
 // https://www.blogdelfotografo.com/wp-content/uploads/2018/12/rain-275317_1920.jpg  5
 // https://e.rpp-noticias.io/xlarge/2023/04/08/103010_1412656.jpg  6
 // http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg  7
-let ciudad  = prompt('Cual es tu la ciudad?'); 
+var ciudad  = prompt('Cual es tu la ciudad?'); 
 const actualiza = ()=>{
     window.location.href = './index.html';
 }

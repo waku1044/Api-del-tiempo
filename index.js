@@ -3,7 +3,6 @@
 const section = document.querySelector('#section');
 const actualizar = document.querySelector('[data-btn-actualizar]');
 const img_tiempo = document.querySelector('#imgTime');
-const ciudad  = prompt('Cual es tu la ciudad?'); 
 
 console.log(img_tiempo.src)
 // 'lluvia ligera','nubes','nubes dispersas','cielo claro','lluvia de gran intensidad','lluvia moderada','muy nuboso'
@@ -14,13 +13,15 @@ console.log(img_tiempo.src)
 // https://www.blogdelfotografo.com/wp-content/uploads/2018/12/rain-275317_1920.jpg  5
 // https://e.rpp-noticias.io/xlarge/2023/04/08/103010_1412656.jpg  6
 // http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg  7
+const ciudad  = prompt('Cual es tu la ciudad?'); 
 const actualiza = ()=>{
     window.location.href = './index.html';
 }
 actualizar.addEventListener('click',actualiza)
+console.log(ciudad)
 
 async function api(ciudad){   
-    let res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad == ''?'campana':ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
+    let res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad === ''?'campana':ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
 .then(response => response.json())
 .then(data => {
     console.log(data.weather[0].description)
@@ -47,7 +48,7 @@ async function api(ciudad){
             img_tiempo.src = 'http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg';
             break;
     }
-    return res, crearLineaNueva(data.name,data.main.temp,data.main.humidity,data.main.pressure,data.wind.speed,data.weather[0].description,data.main.temp_min,data.main.temp_max) 
+    crearLineaNueva(data.name,data.main.temp,data.main.humidity,data.main.pressure,data.wind.speed,data.weather[0].description,data.main.temp_min,data.main.temp_max) 
     } )
 .catch(err => alert('Se encontro un error'))
 };

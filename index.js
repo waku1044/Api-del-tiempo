@@ -3,11 +3,7 @@ const section = document.querySelector('#section');
 const actualizar = document.querySelector('[data-btn-actualizar]');
 const img_tiempo = document.querySelector('#imgTime');
 
-console.log(img_tiempo.src)
 
-
-
-// `http://api.openweathermap.org/data/2.5/weather?q=${ciudad === '' ? 'campana' : ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`
 const crearLineaNueva = (ciudad,temp,hume,presion,viento,espera,min,max)=>{
         document.querySelector('#ciudad').innerHTML = ciudad,
         document.querySelector('#temperatura').innerHTML = temp,
@@ -34,7 +30,7 @@ const actualiza = ()=>{
     window.location.href = './index.html';
 }
 actualizar.addEventListener('click',actualiza)
-console.log(ciudad)
+
 
  async function api(ciudad){   
     try {

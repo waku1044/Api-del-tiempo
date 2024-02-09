@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>El Tiempo</title>
+  </head>
+  <body style="background: #69D7DB;">
+    <div class="container-fluid">
+      
+        <section class="row">
+            <picture class="col-12 col-md-4 p-3" style="height: 30rem;">
+
+                <img
+                id="imgTime"
+                  src="https://i1.wp.com/sabias.es/wp-content/uploads/2014/08/nubes-cielo.jpg?fit=1680%2C1050&ssl=1"
+                  alt="nubes dispersas"
+                  class=" rounded bg-secondary w-100 h-100"
+                 />
+            </picture>
+         
+            <div class="text-center d-flex flex-column  col-12 col-md-4">
+              <h2 class="  py-4">
+                Ciudad: <span id="ciudad"></span>
+              </h2>
+              <h4 class="p-2">El clima actual</h4>
+              <p class="p-2">Temperatura: <span id="temperatura"></span>° C</p>
+              <!--${Math.round(temp)}-->
+              <p class="p-2">Humedad: <span id="humedad"></span> %</p>
+              <p class="p-2">Presion: <span id="presion"></span> hpa</p>
+              <p class="p-2">Vientos de: <span id="viento"></span> km/h</p>
+            </div>
+          
+          <div class="text-center pt-5  d-flex flex-column col-12 col-md-4">
+            <h4 class="p-2 pt-5 text-center">Pronóstico para hoy</h4>
+            <p class="p-2">Se espera: <span id="se_espera"></span></p>
+            <p class="p-2">Min: <span id="min"></span>°</p>
+            <p class="p-2">Max: <span id="max"></span>°</p>
+          </div>
+          <button class="btn btn-primary mx-auto w-50 my-4" data-btn-actualizar>
+            Actualizar
+          </button>
+        </section>
+        <!-- <div class="row">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7849.492609619824!2d-58.961217291100446!3d-34.18968025800859!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1681505349925!5m2!1ses-419!2sar" class="col-12" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div> -->
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

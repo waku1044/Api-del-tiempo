@@ -5,6 +5,18 @@ const actualizar = document.querySelector('[data-btn-actualizar]');
 const img_tiempo = document.querySelector('#imgTime');
 
 console.log(img_tiempo.src)
+const crearLineaNueva = (ciudad,temp,hume,presion,viento,espera,min,max)=>{
+    return document.querySelector('#ciudad').innerHTML = ciudad,
+        document.querySelector('#temperatura').innerHTML = temp,
+        document.querySelector('#humedad').innerHTML = hume,
+        document.querySelector('#presion').innerHTML = presion,
+        document.querySelector('#viento').innerHTML = viento,
+        
+        document.querySelector('#se_espera').innerHTML = espera,
+        document.querySelector('#min').innerHTML = min,        
+        document.querySelector('#max').innerHTML = max        
+    }
+    
 // 'lluvia ligera','nubes','nubes dispersas','cielo claro','lluvia de gran intensidad','lluvia moderada','muy nuboso'
 // https://i2.wp.com/medioambienteynaturaleza.com/wp-content/uploads/2015/08/Nubes-ar.jpg?ssl=1  2
 // http://static.tiempo.com.mx/uploads/imagen/imagen/388071/principal_lluvia.jpg  1
@@ -20,8 +32,8 @@ const actualiza = ()=>{
 actualizar.addEventListener('click',actualiza)
 console.log(ciudad)
 
-async function api(ciudad){   
-    let res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad === ''?'campana':ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
+ function api(ciudad){   
+    return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad === ''?'campana':ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
 .then(response => response.json())
 .then(data => {
     console.log(data.weather[0].description)
@@ -53,18 +65,6 @@ async function api(ciudad){
 .catch(err => alert('Se encontro un error'))
 };
 api(ciudad);
-const crearLineaNueva = (ciudad,temp,hume,presion,viento,espera,min,max)=>{
-    return document.querySelector('#ciudad').innerHTML = ciudad,
-        document.querySelector('#temperatura').innerHTML = temp,
-        document.querySelector('#humedad').innerHTML = hume,
-        document.querySelector('#presion').innerHTML = presion,
-        document.querySelector('#viento').innerHTML = viento,
-        
-        document.querySelector('#se_espera').innerHTML = espera,
-        document.querySelector('#min').innerHTML = min,        
-        document.querySelector('#max').innerHTML = max        
-    }
-    
 
      
 

@@ -60,7 +60,7 @@ console.log(ciudad)
                  img_tiempo.src = 'http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg';
                  break;
          }
-         crearLineaNueva(data.name, data.main.temp, data.main.humidity, data.main.pressure, data.wind.speed, data.weather[0].description, data.main.temp_min, data.main.temp_max);
+         return crearLineaNueva(data.name, data.main.temp, data.main.humidity, data.main.pressure, data.wind.speed, data.weather[0].description, data.main.temp_min, data.main.temp_max);
      } catch (err) {
          return alert('Se encontro un error');
      }

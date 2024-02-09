@@ -36,7 +36,7 @@ console.log(ciudad)
      
     try {
          const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad === '' ? 'campana' : ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
-         const data = await response.json();
+         
          console.log(data.weather[0].description)
          switch (data.weather[0].description) {
              case 'lluvia ligera':
@@ -60,6 +60,8 @@ console.log(ciudad)
              case 'muy nuboso':
                  img_tiempo.src = 'http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg';
                  break;
+             default:
+                 img_tiempo = '#'
          }
         crearLineaNueva(data.name, data.main.temp, data.main.humidity, data.main.pressure, data.wind.speed, data.weather[0].description, data.main.temp_min, data.main.temp_max);
      } catch (err) {

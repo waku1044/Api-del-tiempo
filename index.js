@@ -19,7 +19,8 @@ const actualiza = ()=>{
 }
 actualizar.addEventListener('click',actualiza)
 
-fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad == ''?'campana':ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
+async function api(ciudad){   
+    let res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad == ''?'campana':ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
 .then(response => response.json())
 .then(data => {
     console.log(data.weather[0].description)
@@ -46,9 +47,10 @@ fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad == ''?'campana'
             img_tiempo.src = 'http://www.blogodisea.com/wp-content/uploads/2010/06/lluvia-cielo-nublado-plomizo-waxing-storm-campo.jpg';
             break;
     }
-    crearLineaNueva(data.name,data.main.temp,data.main.humidity,data.main.pressure,data.wind.speed,data.weather[0].description,data.main.temp_min,data.main.temp_max) 
+    return res, crearLineaNueva(data.name,data.main.temp,data.main.humidity,data.main.pressure,data.wind.speed,data.weather[0].description,data.main.temp_min,data.main.temp_max) 
     } )
-.catch(err => alert('Se encontro un error'));
+.catch(err => alert('Se encontro un error'))
+};
 
 const crearLineaNueva = (ciudad,temp,hume,presion,viento,espera,min,max)=>{
     return document.querySelector('#ciudad').innerHTML = ciudad,

@@ -38,7 +38,7 @@ console.log(ciudad)
  async function api(ciudad){   
     try {
          const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad === '' ? 'campana' : ciudad},AR&APPID=5af0f382c935c41627351f02286325a7&units=metric&lang=es`)
-         
+         const data = await response.json();
          console.log(data.weather[0].description)
          switch (data.weather[0].description) {
              case 'lluvia ligera':
